@@ -27,7 +27,6 @@ import store from './store'
 import common from '../static/js/common.js'
 Vue.prototype.$http = axios;
 
-// let musicLrcIndex = 0
 export default {
   name: 'app',
   data(){
