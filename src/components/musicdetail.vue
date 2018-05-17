@@ -98,10 +98,10 @@ export default {
         return this.$store.state.audioInfo.isShowDetail;
       },
       getCurrentMusic(){
-          return this.$store.getters.getCurrentMusic
+        return this.$store.getters.getCurrentMusic
         },
       getCurrentLyric(){
-          return this.$store.getters.getCurrentLyric;
+        return this.$store.getters.getCurrentLyric;
       },
       getMusicType(){
         let mType=this.$store.getters.getMusicType ? this.$store.getters.getMusicType : '-1';

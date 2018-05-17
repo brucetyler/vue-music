@@ -32,16 +32,16 @@ export default {
           index:index
         })
         /*获取音乐url*/
-        this.$http.get('http://localhost:1337/localhost:3000/music/url?id='+id).then(response=>{
+        this.$http.get('http://localhost:3000/music/url?id='+id).then(response=>{
          store.dispatch('set_MusicPlaySrc',response.data.data[0].url)
          store.dispatch('play_current')
        })
           /*获取歌曲详情*/
-      this.$http.get('http://localhost:1337/localhost:3000/song/detail?ids='+id).then(res=>{
+      this.$http.get('http://localhost:3000/song/detail?ids='+id).then(res=>{
         store.dispatch('set_musicList',res.data.songs);
       })
       /*获取歌词*/
-      this.$http.get('http://localhost:1337/localhost:3000/lyric?id='+id).then(res=>{
+      this.$http.get('http://localhost:3000/lyric?id='+id).then(res=>{
         let Lyc=res.data.lrc.lyric.split('[');
         let lrcArray=[];
         Lyc.forEach(function(data,index){

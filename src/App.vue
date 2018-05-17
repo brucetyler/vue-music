@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import header from './components/header.vue'
+import headers from './components/header.vue'
 import sidebar from './components/sidebar.vue'
 import bottombar from './components/bottombar.vue'
 import musicdetail from './components/musicdetail.vue'
@@ -91,7 +91,7 @@ export default {
           common.musicData.getMusicDetail(this,m.id)
           common.musicData.getMusicLyric(this,m.id)
              /*获取音乐url*/
-         this.$http.get('http://localhost:1337/localhost:3000/music/url?id='+m.id).then(response=>{
+         this.$http.get('http://localhost:3000/music/url?id='+m.id).then(response=>{
          store.dispatch('set_MusicPlaySrc',response.data.data[0].url)
          store.dispatch('play_current')
        })
@@ -105,14 +105,14 @@ export default {
       common.musicData.getMusicUrl(this,'108965')
       common.musicData.getMusicLyric(this,'108965')
       /*获取歌单*/
-      this.$http.get('http://localhost:1337/localhost:3000/playlist/detail?id=143293719').then(res=>{
+      this.$http.get('http://localhost:3000/playlist/detail?id=143293719').then(res=>{
         console.log(res.data)
-        store.dispatch('set_musicAllList',res.data.playlist.tracks)
+        store.dispatch('set_musicAllList',res.data.result.tracks)
       })
       
   },
   components:{
-    'v-header': header,
+    'v-header': headers,
     'side-bar': sidebar,
     'bottom-bar': bottombar,
     'music-detail': musicdetail,

@@ -16,7 +16,7 @@
 <script>
   import store from '../store'
 export default {
-  name: 'header',
+  name: 'headers',
   data(){
     return {
 //      'isShow':false

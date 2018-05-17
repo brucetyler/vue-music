@@ -1,14 +1,14 @@
 let musicData={
 	  /*获取音乐url*/
       getMusicUrl:function(self,id){
-      self.$http.get('http://localhost:1337/localhost:3000/music/url?id='+id).then(response=>{
+      self.$http.get('http://localhost:3000/music/url?id='+id).then(response=>{
         self.mSrc=response.data.data[0].url;
          self.$store.dispatch('set_audioEle',self.$refs.audio)
       })
       },
       /*获取歌词*/
       getMusicLyric:function(self,id){
-      self.$http.get('http://localhost:1337/localhost:3000/lyric?id='+id).then(res=>{
+      self.$http.get('http://localhost:3000/lyric?id='+id).then(res=>{
       	console.log(res)
         let Lyc=res.data.lrc.lyric.split('[');
         let lrcArray=[];
@@ -23,7 +23,7 @@ let musicData={
        },
        /*获取歌曲详情*/
       getMusicDetail:function(self,id){     
-      self.$http.get('http://localhost:1337/localhost:3000/song/detail?ids='+id).then(res=>{
+      self.$http.get('http://localhost:3000/song/detail?ids='+id).then(res=>{
         self.$store.dispatch('set_musicList',res.data.songs);
       })
        }
